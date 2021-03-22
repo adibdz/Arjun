@@ -13,56 +13,65 @@
   <a href="https://github.com/s0md3v/Arjun/releases">
     <img src="https://img.shields.io/github/release/s0md3v/Arjun.svg">
   </a>
+  <a href="https://pypi.python.org/pypi/arjun/">
+    <img src="https://img.shields.io/pypi/v/arjun.svg">
+  </a>
   <a href="https://github.com/s0md3v/Arjun/issues?q=is%3Aissue+is%3Aclosed">
-      <img src="https://img.shields.io/github/issues-closed-raw/s0md3v/Arjun.svg">
+      <img src="https://img.shields.io/github/issues-closed-raw/s0md3v/Arjun?color=dark-green&label=issues%20fixed">
+  </a>
+  <a href="https://travis-ci.com/s0md3v/Arjun">
+      <img src="https://img.shields.io/travis/com/s0md3v/Arjun.svg?color=dark-green&label=tests">
   </a>
 </p>
 
-![demo](https://i.ibb.co/Ln32F4B/arjun-demo.png)
+![demo](https://i.ibb.co/q5F8qPY/Screenshot-2020-12-06-21-54-52.png)
 
-### Introduction
+### What's Arjun?
+
+Arjun can find query parameters for URL enpoints. If you don't get what that means, it's okay, read along.
+
 Web applications use parameters (or queries) to accept user input, take the following example into consideration
 
 `http://api.example.com/v1/userinfo?id=751634589`
 
 This URL seems to load user information for a specific user id, but what if there exists a parameter named `admin` which when set to `True` makes the endpoint provide more information about the user?\
-This is what Arjun does, it finds valid HTTP parameters with a huge default dictionary of 25,980 parameter names.
+This is what Arjun does, it finds valid HTTP parameters with a huge default dictionary of 10,985 parameter names.
 
-The best part? It takes less than 30 seconds to go through this huge list while making just 50-60 requests to the target.\
-Want to know how Arjun does that? [Here's how](https://github.com/s0md3v/Arjun/wiki/How-Arjun-works%3F).
+The best part? It takes less than 10 seconds to go through this huge list while making just 20-30 requests to the target. [Here's how](https://github.com/s0md3v/Arjun/wiki/How-Arjun-works%3F).
 
-### Donations
-You can encourage me to contribute more to the open source with donations.
+### Why Arjun?
 
-- Paypal - [https://paypal.me/s0md3v](https://paypal.me/s0md3v)
-- Credit/Debit Card - [https://www.buymeacoffee.com/s0md3v](https://www.buymeacoffee.com/s0md3v)
+- Supports `GET/POST/POST-JSON/POST-XML` requests
+- Automatically handles rate limits and timeouts
+- Export results to: BurpSuite, text or JSON file
+- Import targets from: BurpSuite, text file or a raw request file
+- Can passively extract parameters from JS or 3 external sources
 
-Do you want to sponsor Arjun and get mentioned here? Email me `s0md3v[at]gmail[dot]com`
+### Installing Arjun
 
-### Features
-- Multi-threading
-- Thorough detection
-- Automatic rate limit handling
-- A typical scan takes 30 seconds
-- `GET/POST/JSON` methods supported
-- Huge list of 25,980 parameter names
 
-> **Note:** Arjun doesn't work with python < 3.4
+You can install `arjun` with pip as following:
+```
+pip3 install arjun
+```
 
-#### How to use Arjun?
+or, by downloading this repository and running
+```
+python3 setup.py install
+```
 
-A detailed usage guide is available on [Usage](https://github.com/s0md3v/Arjun/wiki/Usage) section of the Wiki.\
+### How to use Arjun?
 
-An index of options is given below:
+A detailed usage guide is available on [Usage](https://github.com/s0md3v/Arjun/wiki/Usage) section of the Wiki.
 
-- [Scanning a single URL](https://github.com/s0md3v/Arjun/wiki/Usage#scanning-a-single-url)
-- [Scanning multiple URLs](https://github.com/s0md3v/Arjun/wiki/Usage#scanning-multiple-urls)
-- [Choosing number of threads](https://github.com/s0md3v/Arjun/wiki/Usage#multi-threading)
-- [Handling rate limits](https://github.com/s0md3v/Arjun/wiki/Usage#handling-rate-limits)
-- [Delay between requests](https://github.com/s0md3v/Arjun/wiki/Usage#delay-between-requests)
-- [Including presistent data](https://github.com/s0md3v/Arjun/wiki/Usage#including-persistent-data)
-- [Saving output to a file](https://github.com/s0md3v/Arjun/wiki/Usage#saving-output-to-a-file)
-- [Adding custom HTTP headers](https://github.com/s0md3v/Arjun/wiki/Usage#adding-http-headers)
+Direct links to some basic options are given below:
+
+- [Scan a single URL](https://github.com/s0md3v/Arjun/wiki/Usage#scan-a-single-url)
+- [Import targets](https://github.com/s0md3v/Arjun/wiki/Usage#import-multiple-targets)
+- [Export results](https://github.com/s0md3v/Arjun/wiki/Usage#save-output-to-a-file)
+- [Use custom HTTP headers](https://github.com/s0md3v/Arjun/wiki/Usage#use-custom-http-headers)
+
+Optionally, you can use the `--help` argument to explore Arjun on your own.
 
 ##### Credits
-The parameter names are taken from [@SecLists](https://github.com/danielmiessler/SecLists).
+The parameter names wordlist is created by extracting top parameter names from [CommonCrawl](http://commoncrawl.org) dataset and merging best words from [SecLists](https://github.com/danielmiessler/SecLists) and [param-miner](https://github.com/PortSwigger/param-miner) wordlists into that.

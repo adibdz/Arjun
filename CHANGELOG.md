@@ -1,3 +1,36 @@
+#### 2.1.2
+- Minor code cleanup
+- Fixed `--headers` option
+
+#### 2.1.1
+- Fixed circular import
+- Fixed BurpSuite export
+- Fixed not working headers
+- Better response type checking
+- Fixed wordlist error on Windows
+- Fixed `Content-Type` header bug
+
+#### 2.1.0
+- Added `XML` method
+- `-q` option for quiet mode
+- New wordlists backed by research
+- `-oT` option for txt export
+- `-oB` option for BurpSuite export
+- `-oJ` alias for JSON export
+- Added support for custom injection point in `XML` and `JSON`
+- pypi package
+
+#### 2.0-beta
+- Added an anamoly detection algorithm with 9 factors
+- Added a HTTP response analyzer for handling errors and retrying requests
+- Significantly improved heuristic scanner
+- `--passive` option for collecting parameters from otx, commoncrawl and archive.org
+- `-c` option to define number of parameters to be sent at once
+- import via `-i` options now supports: BurpSuite log, raw request file, text file with urls
+- `-T` option to specify HTTP connection timeout
+- combined `-m` option for specifiying HTTP request method
+- Various bug fixes and better output
+
 #### 1.6
 - `--stable` switch for handling rate limits
 - Include empty JS variables for testing
