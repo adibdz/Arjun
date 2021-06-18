@@ -19,25 +19,6 @@ import arjun.core.config as mem
 from arjun.core.colors import info
 
 
-def lcs(s1, s2):
-    """
-    finds longest common substring between two strings
-    returns str
-    """
-    m = [[0] * (1 + len(s2)) for i in range(1 + len(s1))]
-    longest, x_longest = 0, 0
-    for x in range(1, 1 + len(s1)):
-        for y in range(1, 1 + len(s2)):
-            if s1[x - 1] == s2[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
-            else:
-                m[x][y] = 0
-    return s1[x_longest - longest: x_longest]
-
-
 def extract_headers(headers):
     """
     parses headers provided through command line
@@ -158,8 +139,10 @@ def create_query_string(params):
     """
     query_string = ''
     for param in params:
-        pair = param + '=' + random_str(4)
+        pair = param + '=' + random_str(4) + '&'
         query_string += pair
+    if query_string.endswith('&'):
+	    query_string = query_string[:-1]
     return '?' + query_string
 
 
@@ -175,11 +158,12 @@ def reader(path, mode='string'):
             return ''.join([line for line in file])
 
 
+re_extract_js = re.compile(r'(?si)<script[^>]*>([^<].+?)</script')
 def extract_js(response):
     """
     extracts javascript from a given string
     """
-    return re.findall(r'(?s)<script[^>]+>([^<].+?)</script', response.lower(), re.I)
+    return re_extract_js.findall(response)
 
 
 def parse_headers(string):

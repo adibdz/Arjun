@@ -1,3 +1,15 @@
+#### 2.1.4
+- Fixed file-paths not being windows compatible
+- Fixed and improved JavaScript heuristics scanning
+- Fixed missing ampersands in `-oT` output
+- Refactoring of help options and code
+
+#### 2.1.3
+- Fixed memory exhaustion bug
+- Fixed parsing of raw HTTP files
+- Added new detection factor: `number of lines`
+- Failed retries are now handled properly
+
 #### 2.1.2
 - Minor code cleanup
 - Fixed `--headers` option
